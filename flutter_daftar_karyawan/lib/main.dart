@@ -51,7 +51,6 @@ class MyHomePage extends StatelessWidget {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-<<<<<<< Updated upstream
                         title: Text(
                           snapshot.data![index].nama,
                           style: const TextStyle(fontWeight: FontWeight.bold),
@@ -68,22 +67,6 @@ class MyHomePage extends StatelessWidget {
             } else if (snapshot.hasError) {
               return Center(
                 child: Text('${snapshot.error}'),
-=======
-                      title: Text(
-                        snapshot.data![index].nama ,
-                        style: const TextStyle(fontWeight: FontWeight.bold),),
-                      subtitle: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Umur : $snapshot.data![index].umur'),
-                          Text('Alamat : ${snapshot.data![index].alamat.jalan}')
-                        ],
-                      )
-                    ); 
-                });
-            } else if (snapshot.hasError){
-              return Center(child: Text('${snapshot.error}'),
->>>>>>> Stashed changes
               );
             }
 
