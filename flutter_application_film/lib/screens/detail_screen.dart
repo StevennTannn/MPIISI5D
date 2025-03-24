@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_film/models/movie.dart';
 
-class DetailScreen extends StatelessWidget {
+class DetailScreen extends StatefulWidget {
   final Movie movie;
+
   const DetailScreen({super.key, required this.movie});
+
+  @override
+  State<DetailScreen> createState() => _DetailScreenState();
+}
+
+class _DetailScreenState extends State<DetailScreen> {
+  bool isFavorite = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(movie.title),
+          title: Text(widget.movie.title),
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -18,7 +26,7 @@ class DetailScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.network(
-                  'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
+                  'https://image.tmdb.org/t/p/w500${widget.movie.backdropPath}',
                   height: 300,
                   width: double.infinity,
                   fit: BoxFit.cover,
@@ -33,7 +41,7 @@ class DetailScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(movie.overview),
+                Text(widget.movie.overview),
                 const SizedBox(
                   height: 20,
                 ),
@@ -54,7 +62,7 @@ class DetailScreen extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(movie.releaseDate)
+                    Text(widget.movie.releaseDate)
                   ],
                 ),
                 Row(
@@ -74,7 +82,7 @@ class DetailScreen extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-                    Text(movie.voteAverage.toString())
+                    Text(widget.movie.voteAverage.toString())
                   ],
                 ),
               ],
